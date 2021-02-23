@@ -86,6 +86,11 @@ updateStrategy: RollingUpdate
 # global.nrStaging
 nrStaging: false
 
+privileged: true
+
+# For unprivileged mode - default is 1000.
+runAsUser:
+
 daemonSet:
   # Annotations to add to the DaemonSet.
   annotations: {}
