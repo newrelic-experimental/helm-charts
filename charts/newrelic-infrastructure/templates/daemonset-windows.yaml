@@ -14,7 +14,13 @@ metadata:
   {{- end }}
 spec:
   updateStrategy:
-    type: {{  $.Values.updateStrategy }}
+    {{- with .Values.updateStrategy }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with .Values.windowsUpdateStrategy }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- end }}
   selector:
     matchLabels:
       app: {{ template "newrelic.name" $ }}
